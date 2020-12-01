@@ -1,0 +1,21 @@
+{
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "indentation": 2,
+    "no-extra-semicolons": true,
+    "color-no-invalid-hex": true,
+    "max-nesting-depth": 3,
+    "block-no-empty": true,
+    "comment-no-empty": true,
+    "order/properties-order": [
+      "position",
+      "z-index",
+      "top",
+      "right",
+      "bottom",
+      "left"
+    ]
+  }
+}
