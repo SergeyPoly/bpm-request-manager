@@ -1,8 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import { exampleReducer } from '../../client/example/reducer/example.reeducer';
+import { loginReducer } from '../componets/LoginForm/login.reducer'
 
 const rootReducer = combineReducers({
-  example: exampleReducer,
+    login: loginReducer
 });
 
 export default rootReducer;
