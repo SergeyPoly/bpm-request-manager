@@ -1,11 +1,11 @@
 @import '../../../../shared/styles/scss/style.scss';
 
 .login-page {
+    padding-top: 9%;
     @include d-flex {
         justify-content: getJustify(c);
         align-items: getAlign(c);
     }
-    height: 355px;
 }
 
 .login-page__reminder_button {

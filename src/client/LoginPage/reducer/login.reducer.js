@@ -3,7 +3,7 @@ import { LOGIN, LOGOUT, REMIND_PASSWORD } from '../../../app/store/actions';
 const initialState = {
     isAuthorized: false,
     forgetPassword: false,
-    userName: 'testUser',
+    userName: '',
 };
 
 export const loginReducer = (state = initialState, action) => {
@@ -13,6 +13,7 @@ export const loginReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isAuthorized: true,
+                userName: action.payload
             };
         case LOGOUT:
             return {

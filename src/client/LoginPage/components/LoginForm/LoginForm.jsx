@@ -9,14 +9,14 @@ export const LoginForm = props => {
     const {handleSubmit} = props;
 
     const initialValues = {
-        userName: "",
+        username: "",
         password: "",
     };
 
     const validate = values => {
         const errors = {};
-        if (!values.userName) {
-            errors.userName = 'required';
+        if (!values.username) {
+            errors.username = 'required';
         }
         if (!values.password) {
             errors.password = 'required';
@@ -25,7 +25,7 @@ export const LoginForm = props => {
     };
 
     const onSubmit = (values)=> {
-        handleSubmit();
+        handleSubmit(values);
         // console.log(values);
     };
 
@@ -39,7 +39,7 @@ export const LoginForm = props => {
         <Formik {...formProps}>
             <Form>
                 <div>
-                    <TextInput {...fields.userName} />
+                    <TextInput {...fields.username} />
                     <TextInput {...fields.password} />
                     <SubmitInput {...fields.submit} />
                 </div>

@@ -1,22 +1,14 @@
 .container-main {
-  max-width: 768px;
   width: 100%;
   min-width: 320px;
-  height: 400px;
-  margin: 7% auto 0px;
   background-color: #FFFFFF;
-}
-@media only screen and (max-width: 767px) {
-  .container-main {
-    margin: 0px auto;
-  }
 }
 
 .login-page {
+  padding-top: 9%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 355px;
 }
 
 .login-page__reminder_button {
@@ -58,4 +50,4 @@
   padding: 0 30px;
 }
 
-/*# sourceMappingURL=ProcessesPage.css.map */
+/*# sourceMappingURL=LoginPage.css.map */

@@ -3,13 +3,7 @@
 @import "functions";
 
 .container-main {
-    max-width: 768px;
     width: 100%;
     min-width: 320px;
-    height: 400px;
-    margin: 7% auto 0px;
-    @include media-query('tablet', max) {
-        margin: 0px auto;
-    }
     background-color: $background-color--main-layout;
 }

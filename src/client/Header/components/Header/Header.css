@@ -1,15 +1,7 @@
 .container-main {
-  max-width: 768px;
   width: 100%;
   min-width: 320px;
-  height: 400px;
-  margin: 7% auto 0px;
   background-color: #FFFFFF;
-}
-@media only screen and (max-width: 767px) {
-  .container-main {
-    margin: 0px auto;
-  }
 }
 
 .header {

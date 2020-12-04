@@ -1,7 +1,7 @@
 export const fields = {
-    userName: {
+    username: {
         type: "text",
-        name: "userName",
+        name: "username",
         label: "User name",
     },
     password: {

@@ -1,15 +1,15 @@
 import React from 'react';
-import Button from '../../../../shared/components/Button';
+import SpanButton from '../../../../shared/components/SpanButton';
 
 export const LangSwitcher = props => {
     return (
         <>
-            <Button
+            <SpanButton
                 text={'UA'}
                 classNames={['header__lang-switch_button']}
             />
             <span>|</span>
-            <Button
+            <SpanButton
                 text={'EN'}
                 classNames={['header__lang-switch_button']}
             />

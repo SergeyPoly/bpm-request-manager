@@ -1,9 +1,10 @@
 import { LOGIN, LOGOUT, REMIND_PASSWORD } from './actions';
 
 
-export const loginCreator = () => {
+export const loginCreator = (payload) => {
     return {
-        type: LOGIN
+        type: LOGIN,
+        payload
     }
 };
 

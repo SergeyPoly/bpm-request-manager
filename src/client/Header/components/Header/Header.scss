@@ -12,6 +12,7 @@
 
 .header__content {
     @include font-source-sans ( black, normal )
+    padding-right: 20px;
 }
 
 .header__profile-text {
@@ -24,5 +25,6 @@
 
 .header__lang-switch_button {
     background-color: transparent;
+    padding: 0px 5px;
 }
 
