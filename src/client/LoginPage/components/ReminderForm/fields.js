@@ -4,13 +4,13 @@ export const fields = {
         name: "userName",
         label: "User name",
     },
-    password: {
-        type: "password",
-        name: "password",
-        label: "Password"
+    email: {
+        type: "email",
+        name: "email",
+        label: "Email"
     },
     submit: {
-        value: "login",
+        value: "Remind",
         type: "submit",
         name: "submit",
     }

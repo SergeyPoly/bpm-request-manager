@@ -1,96 +1,15 @@
+@import "variables";
+@import "mixins";
+@import "functions";
+
 .container-main {
-    width: 800px;
+    max-width: 768px;
+    width: 100%;
+    min-width: 320px;
     height: 400px;
     margin: 7% auto 0px;
-    background-color: #E5E5E5;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.header {
-    width: 100%;
-    height: 45px;
-    background-color: slategray;
-
-}
-
-.header__heading {
-    padding-top: 8px;
-    padding-left: 10px;
-}
-
-.header__logout_button {
-    background-color: transparent;
-    font-weight: bold;
-    float: right;
-    margin-top: 8px;
-    margin-right: 20px;
-}
-
-.header__lang-switcher {
-    float: right;
-    display: inline-block;
-    margin-top: 8px;
-    margin-right: 20px;
-}
-
-.header__lang-switch_button {
-    background-color: transparent;
-    font-weight: bold;
-}
-
-.header__lang-switcher_dash {
-    font-weight: bold;
-}
-
-.login-page {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 355px;
-}
-
-.login-page__form {
-    width: 230px;
-}
-
-.login-page__heading {
-    margin-bottom: 20px;
-}
-
-.login-page__logo img {
-    width: 200px;
-    height: 200px;
-}
-
-.login-page__reminder_button {
-    background-color: transparent;
-    font-weight: bold;
-    display: block;
-    margin: 0 auto;
-}
-
-.form-field-label {
-    display: block;
-}
-
-.form-field {
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    width: 230px;
-}
-
-.form-submit-button-container {
-    padding-top: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.form-submit-button {
-    border: none;
-    border-radius: 5px;
-    background-color: darkgreen;
-    color: #E5E5E5;
-    padding: 0 30px;
+    @include media-query('tablet', max) {
+        margin: 0px auto;
+    }
+    background-color: $background-color--main-layout;
 }

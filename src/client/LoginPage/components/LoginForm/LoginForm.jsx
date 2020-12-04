@@ -1,15 +1,12 @@
 import React from 'react';
 import {Formik, Form} from "formik";
 import {fields} from "./fields";
-import { useDispatch } from 'react-redux';
 
-import {TextInput} from "./CustomFormFields/TextInput";
-import {SubmitInput} from "./CustomFormFields/SubmitInput";
-import { loginCreator } from '../../store/action-creators';
+import {TextInput} from "../../../../shared/components/CustomFormFields/TextInput";
+import {SubmitInput} from "../../../../shared/components/CustomFormFields/SubmitInput";
 
-export const LoginForm = () => {
-
-    const dispatch = useDispatch();
+export const LoginForm = props => {
+    const {handleSubmit} = props;
 
     const initialValues = {
         userName: "",
@@ -28,8 +25,8 @@ export const LoginForm = () => {
     };
 
     const onSubmit = (values)=> {
-        dispatch(loginCreator());
-        console.log(values);
+        handleSubmit();
+        // console.log(values);
     };
 
     const formProps = {

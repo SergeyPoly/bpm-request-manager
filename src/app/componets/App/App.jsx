@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import '../../../shared/styles/scss/style.scss';
 import { AppRoutes } from '../../routes';
-import { Header } from '../Header';
+import { Header } from '../../../client/Header/components/Header';
 
 export const App = () => {
   return (

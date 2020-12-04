@@ -1,13 +1,19 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { LoginPage } from '../../client/login/pages/LoginPage';
+import { LoginPage } from '../../client/LoginPage/components/LoginPage';
+import { ProcessesPage } from '../../client/ProcessesPage/components/ProcessesPage';
+import { shallowEqual, useSelector } from 'react-redux';
 
 export const AppRoutes = () => {
-  return (
-    <Switch>
-      <Route exact path="/">
-        <LoginPage />
-      </Route>
-    </Switch>
-  );
+    const isAuthorized = useSelector(state => state.login.isAuthorized, shallowEqual);
+    return (
+        <Switch>
+            <Route
+                exact path="/"
+                render={() => !isAuthorized ?
+                    <LoginPage/> :
+                    <ProcessesPage/>
+                }/>
+        </Switch>
+    );
 };

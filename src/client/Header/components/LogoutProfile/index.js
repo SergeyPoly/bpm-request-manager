@@ -1,0 +1,1 @@
+export { LogoutProfile } from './LogoutProfile'
