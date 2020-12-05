@@ -1,0 +1,16 @@
+.container-main {
+  width: 100%;
+  min-width: 320px;
+  background-color: #FFFFFF;
+}
+
+.error-message {
+  font-family: Roboto, sans-serif;
+  font-size: 1rem;
+  color: red;
+  font-weight: normal;
+  height: 20px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=ErrorMessage.css.map */

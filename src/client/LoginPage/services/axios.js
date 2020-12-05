@@ -1,5 +1,8 @@
 import axios from "axios";
-import { loginCreator } from '../../../app/store/action-creators';
+import {
+    loginCreator,
+    setErrorMessageCreator,
+} from '../../../app/store/action-creators';
 
 const options = {
     headers: {
@@ -19,10 +22,10 @@ export const getUserThunkCreator = ({username, password}) => {
                 if (response.data.authenticated) {
                     dispatch(loginCreator(response.data.authenticatedUser));
                 } else {
-                    console.log(`wrong password!`);
+                    dispatch(setErrorMessageCreator('wrong password!'));
                 }
             } catch (e) {
-                console.log(`Axios request failed: ${e}`);
+                dispatch(setErrorMessageCreator('wrong login!'));
             }}
     )
 };

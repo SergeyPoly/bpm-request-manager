@@ -1,9 +1,15 @@
-import { LOGIN, LOGOUT, REMIND_PASSWORD } from '../../../app/store/actions';
+import {
+    ERROR_MESSAGE,
+    LOGIN,
+    LOGOUT,
+    REMIND_PASSWORD,
+} from '../../../app/store/actions';
 
 const initialState = {
     isAuthorized: false,
     forgetPassword: false,
     userName: '',
+    errorMessage: '',
 };
 
 export const loginReducer = (state = initialState, action) => {
@@ -13,17 +19,25 @@ export const loginReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isAuthorized: true,
-                userName: action.payload
+                userName: action.payload,
+                errorMessage: ''
             };
         case LOGOUT:
             return {
                 ...state,
-                isAuthorized: false
+                isAuthorized: false,
+                errorMessage: ''
             };
         case REMIND_PASSWORD:
             return {
                 ...state,
-                forgetPassword: !state.forgetPassword
+                forgetPassword: !state.forgetPassword,
+                errorMessage: ''
+            };
+        case ERROR_MESSAGE:
+            return {
+                ...state,
+                errorMessage: action.payload
             };
         default:
             return state;

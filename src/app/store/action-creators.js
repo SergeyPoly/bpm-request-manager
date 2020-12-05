@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, REMIND_PASSWORD } from './actions';
+import { ERROR_MESSAGE, LOGIN, LOGOUT, REMIND_PASSWORD } from './actions';
 
 
 export const loginCreator = (payload) => {
@@ -17,5 +17,12 @@ export const logoutCreator = () => {
 export const toggleReminderCreator = () => {
     return {
         type: REMIND_PASSWORD
+    }
+};
+
+export const setErrorMessageCreator = (payload) => {
+    return {
+        type: ERROR_MESSAGE,
+        payload
     }
 };

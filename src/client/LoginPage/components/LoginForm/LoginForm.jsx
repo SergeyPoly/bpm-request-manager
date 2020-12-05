@@ -4,6 +4,7 @@ import {fields} from "./fields";
 
 import {TextInput} from "../../../../shared/components/CustomFormFields/TextInput";
 import {SubmitInput} from "../../../../shared/components/CustomFormFields/SubmitInput";
+import { ErrorMessage } from '../ErrorMessage';
 
 export const LoginForm = props => {
     const {handleSubmit} = props;
@@ -26,7 +27,6 @@ export const LoginForm = props => {
 
     const onSubmit = (values)=> {
         handleSubmit(values);
-        // console.log(values);
     };
 
     const formProps = {
@@ -41,6 +41,7 @@ export const LoginForm = props => {
                 <div>
                     <TextInput {...fields.username} />
                     <TextInput {...fields.password} />
+                    <ErrorMessage />
                     <SubmitInput {...fields.submit} />
                 </div>
             </Form>
