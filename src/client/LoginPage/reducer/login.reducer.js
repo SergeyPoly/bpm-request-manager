@@ -23,6 +23,7 @@ export const loginReducer = (state = initialState, action) => {
                 errorMessage: ''
             };
         case LOGOUT:
+            localStorage.clear();
             return {
                 ...state,
                 isAuthorized: false,
