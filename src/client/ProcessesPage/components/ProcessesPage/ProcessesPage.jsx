@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { Table } from 'antd';
 
 import './ProcessesPage.scss'
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import {
     processesIdRequestCreator,
     processesTasksRequestCreator,
 } from '../../reducer/processesActionCreators';
+import { columns, pagination } from './tableOptions'
 
 export const ProcessesPage = () => {
     const processesId = useSelector(state => state.processes.processesId, shallowEqual);
@@ -23,6 +24,14 @@ export const ProcessesPage = () => {
         }
     }, [processesId]);
 
+    const status = dataSource.map(({status}) => status);
+    const uniStatus = Array.from(new Set(status));
+    const filterStatus = uniStatus.map(element => ({text: element, value: element}));
+
+    const name = dataSource.map(({name}) => name);
+    const uniName = Array.from(new Set(name));
+    const filterName = uniName.map(element => ({text: element, value: element}));
+
     const columns = [
         {
             title: 'Номер',
@@ -33,6 +42,8 @@ export const ProcessesPage = () => {
             title: 'Статус',
             dataIndex: 'status',
             key: 'status',
+            filters: filterStatus,
+            onFilter: (value, record) => record.status.indexOf(value) === 0,
         },
         {
             title: 'Створено',
@@ -43,16 +54,19 @@ export const ProcessesPage = () => {
             title: 'Назва',
             dataIndex: 'name',
             key: 'name',
+            filters: filterName,
+            onFilter: (value, record) => record.name.indexOf(value) === 0,
         },
     ];
 
-    const pagination = {
-        position: ['bottomCenter']
-    };
-
     return (
         <div className={'processes-page'}>
-            <Table dataSource={dataSource} columns={columns} pagination={pagination} />
+            <Table
+                dataSource={dataSource}
+                columns={columns}
+                pagination={pagination}
+                size="middle"
+            />
         </div>
     );
 };
