@@ -69,14 +69,23 @@ export const processesXMLRequestCreator = (processesIdUpdated) => {
                     })
                 )
                 .then(result => {
-                    console.log(XMLpropcessData);
                     for (let i = 0; i < XMLpropcessData.length; i++) {
                         tasks = tasks.map(element => element.key === XMLpropcessData[i].id ?
                             {...element, name: XMLpropcessData[i].name} : element);
                     }
                     tasks = tasks.map(({key, id, ...rest}) => ({...rest}));
+                    const options = {
+                        year: 'numeric',
+                        month: 'numeric',
+                        day: 'numeric',
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        second: 'numeric'
+                    };
                     for (let i = 0; i < tasks.length; i++) {
                         tasks[i].key = i+1;
+                        const parseDate = new Date(Date.parse(tasks[i].created));
+                        tasks[i].created = parseDate.toLocaleString("ru", options);
                     }
                     dispatch(setProcessesTasks(tasks))
                 })

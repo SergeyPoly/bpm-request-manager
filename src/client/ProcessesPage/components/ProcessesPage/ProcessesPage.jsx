@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Pagination, Table } from 'antd';
+import { Table } from 'antd';
 
 import './ProcessesPage.scss'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
@@ -22,10 +22,6 @@ export const ProcessesPage = () => {
             dispatch(processesTasksRequestCreator(processesId))
         }
     }, [processesId]);
-
-    const onChange = (page) => {
-        console.log(page)
-    };
 
     const columns = [
         {
