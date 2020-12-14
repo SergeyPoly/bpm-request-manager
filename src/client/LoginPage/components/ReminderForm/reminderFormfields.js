@@ -1,5 +1,5 @@
-export const fields = {
-    userName: {
+export const reminderFormfields = {
+    username: {
         type: "text",
         name: "userName",
         label: "User name",

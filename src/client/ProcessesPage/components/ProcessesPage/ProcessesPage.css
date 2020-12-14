@@ -1,3 +1,4 @@
+@import '~antd/dist/antd.css';
 .container-main {
   width: 100%;
   min-width: 320px;
@@ -5,9 +6,6 @@
 }
 
 .processes-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 355px;
   font-family: Roboto, sans-serif;
   font-size: 1rem;

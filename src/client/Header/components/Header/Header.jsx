@@ -4,14 +4,16 @@ import './Header.scss'
 import '../../../../shared/styles/scss/style.scss'
 
 import { LangSwitcher } from '../LangSwitcher';
-import { logoutCreator } from '../../../../app/store/action-creators';
+import {
+    logoutRequestCreator,
+} from '../../../LoginPage/reducer/loginActionCreators';
 import { LogoutProfile } from '../LogoutProfile';
 
 export const Header = () => {
     const isAuthorized = useSelector(state => state.login.isAuthorized, shallowEqual);
     const userName = useSelector(state => state.login.userName, shallowEqual);
     const dispatch = useDispatch();
-    const handleClick = () => {dispatch(logoutCreator())};
+    const handleClick = () => {dispatch(logoutRequestCreator())};
     const userProfile = `User: ${userName}`;
 
     const headerContent = isAuthorized ?

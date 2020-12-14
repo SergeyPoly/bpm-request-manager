@@ -6,7 +6,7 @@ export const TextInput = ({ label, ...props }) => {
     return (
         <div>
             <label className={'form-field-label'} htmlFor={props.name}>{label}</label>
-            <input className={'form-field'} {...field} {...props} />
+            <input className={'form-field'} id={props.name} {...field} {...props} />
         </div>
     );
 };

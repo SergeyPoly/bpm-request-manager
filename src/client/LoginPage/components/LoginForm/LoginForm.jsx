@@ -1,13 +1,15 @@
 import React from 'react';
-import {Formik, Form} from "formik";
-import {fields} from "./fields";
+import { Formik, Form } from "formik";
+import { useDispatch } from 'react-redux';
 
-import {TextInput} from "../../../../shared/components/CustomFormFields/TextInput";
-import {SubmitInput} from "../../../../shared/components/CustomFormFields/SubmitInput";
+import { loginFormFields } from "./loginFormFields";
+import { TextInput } from "../../../../shared/components/CustomFormFields/TextInput";
+import { SubmitInput } from "../../../../shared/components/CustomFormFields/SubmitInput";
 import { ErrorMessage } from '../ErrorMessage';
+import { loginRequestCreator } from '../../reducer/loginActionCreators';
 
-export const LoginForm = props => {
-    const {handleSubmit} = props;
+export const LoginForm = () => {
+    const dispatch = useDispatch();
 
     const initialValues = {
         username: "",
@@ -26,7 +28,7 @@ export const LoginForm = props => {
     };
 
     const onSubmit = (values)=> {
-        handleSubmit(values);
+        dispatch(loginRequestCreator(values))
     };
 
     const formProps = {
@@ -39,10 +41,10 @@ export const LoginForm = props => {
         <Formik {...formProps}>
             <Form>
                 <div>
-                    <TextInput {...fields.username} />
-                    <TextInput {...fields.password} />
+                    <TextInput {...loginFormFields.username} />
+                    <TextInput {...loginFormFields.password} />
                     <ErrorMessage />
-                    <SubmitInput {...fields.submit} />
+                    <SubmitInput {...loginFormFields.submit} />
                 </div>
             </Form>
         </Formik>

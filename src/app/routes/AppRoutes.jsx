@@ -14,6 +14,10 @@ export const AppRoutes = () => {
                     <LoginPage/> :
                     <ProcessesPage/>
                 }/>
+                {/*render={() => !isAuthorized ?*/}
+                {/*    <ProcessesPage/> :*/}
+                {/*    <LoginPage/> */}
+                {/*}/>*/}
         </Switch>
     );
 };

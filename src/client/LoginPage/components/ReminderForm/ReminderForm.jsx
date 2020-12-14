@@ -1,12 +1,16 @@
 import React from 'react';
-import {Formik, Form} from "formik";
-import {fields} from "./fields";
+import { Formik, Form } from "formik";
+import { useDispatch } from 'react-redux';
 
-import {TextInput} from "../../../../shared/components/CustomFormFields/TextInput";
-import {SubmitInput} from "../../../../shared/components/CustomFormFields/SubmitInput";
+import { reminderFormfields } from "./reminderFormfields";
+import { TextInput } from "../../../../shared/components/CustomFormFields/TextInput";
+import { SubmitInput } from "../../../../shared/components/CustomFormFields/SubmitInput";
+import { ErrorMessage } from '../ErrorMessage';
+import { toggleLoginPageForm } from '../../reducer/loginActionCreators';
 
-export const ReminderForm = props => {
-    const {handleSubmit} = props;
+
+export const ReminderForm = () => {
+    const dispatch = useDispatch();
 
     const initialValues = {
         userName: "",
@@ -25,7 +29,7 @@ export const ReminderForm = props => {
     };
 
     const onSubmit = (values)=> {
-        handleSubmit();
+        dispatch(toggleLoginPageForm());
         console.log(values);
     };
 
@@ -39,9 +43,10 @@ export const ReminderForm = props => {
         <Formik {...formProps}>
             <Form>
                 <div>
-                    <TextInput {...fields.userName} />
-                    <TextInput {...fields.email} />
-                    <SubmitInput {...fields.submit} />
+                    <TextInput {...reminderFormfields.username} />
+                    <TextInput {...reminderFormfields.email} />
+                    <ErrorMessage />
+                    <SubmitInput {...reminderFormfields.submit} />
                 </div>
             </Form>
         </Formik>

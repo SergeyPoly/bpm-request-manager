@@ -1,4 +1,4 @@
-export const fields = {
+export const loginFormFields = {
     username: {
         type: "text",
         name: "username",
@@ -10,7 +10,7 @@ export const fields = {
         label: "Password"
     },
     submit: {
-        value: "Login",
+        value: "login",
         type: "submit",
         name: "submit",
     }
