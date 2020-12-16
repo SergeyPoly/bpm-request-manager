@@ -78,9 +78,6 @@ export const processesXMLRequestCreator = (processesIdUpdated) => {
                         year: 'numeric',
                         month: 'numeric',
                         day: 'numeric',
-                        hour: 'numeric',
-                        minute: 'numeric',
-                        second: 'numeric'
                     };
                     for (let i = 0; i < tasks.length; i++) {
                         tasks[i].key = i+1;
