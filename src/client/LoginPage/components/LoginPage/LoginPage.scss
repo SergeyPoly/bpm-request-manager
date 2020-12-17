@@ -10,7 +10,7 @@
 
 .login-page__reminder_button {
     background-color: transparent;
-    @include font-source-sans ( black, normal );
+    @include font-source-sans (1rem, black, normal );
     display: block;
     margin: 0 auto;
 }
@@ -37,6 +37,6 @@
     border: none;
     border-radius: 5px;
     background-color: $background-color--secondary-elements;
-    @include font-source-sans ( white, 700 );
+    @include font-source-sans (1rem, white, 700 );
     padding: 0 30px;
 }

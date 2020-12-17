@@ -11,7 +11,7 @@
 }
 
 .header__content {
-    @include font-source-sans ( black, normal )
+    @include font-source-sans (14px, black, normal );
     padding-right: 20px;
 }
 

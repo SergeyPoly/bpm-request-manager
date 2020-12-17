@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
 import { shallowEqual, useSelector } from 'react-redux';
 import { Table, Input, Button, Space } from 'antd';
 import 'antd/dist/antd.css';
@@ -113,7 +112,17 @@ export const TableContainer = () => {
             title: 'Створено',
             dataIndex: 'created',
             key: 'created',
-            className: 'table_text'
+            className: 'table_text',
+            defaultSortOrder: 'descend',
+            sorter: (a, b) => {
+                const getDate = (date) => {
+                    const dateParts = date.split('.');
+                    return new Date(dateParts[2], dateParts[1]-1, dateParts[0]);
+                };
+                let dateA = getDate(a.created);
+                let dateB = getDate(b.created);
+                return(dateA - dateB)
+            }
         },
         {
             title: 'Запит',

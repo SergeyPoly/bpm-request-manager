@@ -1,22 +1,8 @@
-@import '~antd/dist/antd.css';
 .container-main {
   width: 100%;
   min-width: 320px;
   background-color: #FFFFFF;
-}
-
-.processes-page {
-  height: 355px;
-  font-family: Roboto, sans-serif;
-  font-size: 1rem;
-  color: black;
-  font-weight: 700;
-  font-size: 30px;
-}
-
-.table_text {
-  font-size: 14px;
-  font-weight: 400;
+  padding: 0 15px;
 }
 
 /*# sourceMappingURL=ProcessesPage.css.map */
