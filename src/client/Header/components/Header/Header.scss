@@ -11,8 +11,15 @@
 }
 
 .header__content {
+    width: 100%;
     @include font-source-sans (14px, black, normal );
-    padding-right: 20px;
+}
+
+.header__content--auth{
+    @include d-flex {
+        justify-content: getJustify(sb);
+        align-items: getAlign(c);
+    }
 }
 
 .header__profile-text {
@@ -26,5 +33,9 @@
 .header__lang-switch_button {
     background-color: transparent;
     padding: 0px 5px;
+}
+
+.header__lang-switch {
+    float: right;
 }
 

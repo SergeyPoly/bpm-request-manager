@@ -1,6 +1,10 @@
 import {parseStringPromise} from 'xml2js'
 
-import { SET_PROCESSES_ID, SET_PROCESSES_TASKS } from './processesActions';
+import {
+    SET_DRAWER_ACTIVE, SET_DRAWER_INACTIVE,
+    SET_PROCESSES_ID,
+    SET_PROCESSES_TASKS,
+} from './processesActions';
 import ProcessesService from '../services/processes.service';
 
 const processesService = new ProcessesService();
@@ -11,6 +15,14 @@ export const setProcessesId = (payload) => {
 
 export const setProcessesTasks = (payload) => {
     return { type: SET_PROCESSES_TASKS, payload };
+};
+
+export const setDrawerActive = () => {
+    return { type: SET_DRAWER_ACTIVE };
+};
+
+export const setDrawerInactive = () => {
+    return { type: SET_DRAWER_INACTIVE };
 };
 
 export const processesIdRequestCreator = () => {
