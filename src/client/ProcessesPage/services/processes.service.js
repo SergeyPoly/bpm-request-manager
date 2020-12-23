@@ -41,5 +41,12 @@ export default class ProcessesIdService extends BaseHttpService {
         const response = await this.get(endpoint);
         return response;
     }
+
+    async getProcessDefinitions() {
+        const {tenantId} = this.loadTenantId();
+        const endpoint = `engine-rest/engine/default/process-definition?tenantIdIn=${tenantId}`;
+        const response = await this.get(endpoint);
+        return response;
+    }
 };
 

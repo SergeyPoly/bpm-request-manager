@@ -1,5 +1,5 @@
 import {
-    SET_DRAWER_ACTIVE, SET_DRAWER_INACTIVE,
+    SET_DRAWER_ACTIVE, SET_DRAWER_INACTIVE, SET_PROCESSES_DEFINITIONS,
     SET_PROCESSES_ID,
     SET_PROCESSES_TASKS,
 } from './processesActions';
@@ -8,6 +8,7 @@ import {
 const initialState = {
     processesId: [],
     tasks: [],
+    processesDefinitions: [],
     drawerActive: false,
 };
 
@@ -17,6 +18,8 @@ export const processesReducer = (state = initialState, { type, payload }) => {
             return { ...state, processesId: payload };
         case SET_PROCESSES_TASKS:
             return { ...state, tasks: payload };
+        case SET_PROCESSES_DEFINITIONS:
+            return { ...state, processesDefinitions: payload };
         case SET_DRAWER_ACTIVE:
             return { ...state, drawerActive: true };
         case SET_DRAWER_INACTIVE:

@@ -10,25 +10,37 @@ import { setDrawerInactive } from '../../../client/ProcessesPage/reducer/process
 
 export const App = () => {
     const visible = useSelector(store => store.processes.drawerActive);
+    const processesDefinitions = useSelector(store => store.processes.processesDefinitions);
     const dispatch = useDispatch();
-    const onClose = () => {dispatch(setDrawerInactive())};
-  return (
-      <div className={'container-main'}>
-          <Header />
-          <AppRoutes />
-          <Drawer
-              title="New request"
-              placement="right"
-              closable={false}
-              onClose={onClose}
-              visible={visible}
-          >
-              <p>Process_1</p>
-              <p>Process_2</p>
-              <p>Process_3</p>
-              <p>Process_4</p>
+    const userProcesses = processesDefinitions.map(element => (
+            <p
+                key={element.key}
+                onClick={() => {
+                    dispatch(setDrawerInactive());
+                    console.log(element.key)
+                }}
+                style={{'cursor': 'pointer'}}
+            >{element.name}</p>
+        )
+    );
 
-          </Drawer>
-      </div>
-      );
+    const onClose = () => {
+        dispatch(setDrawerInactive());
+    };
+
+    return (
+        <div className={'container-main'}>
+            <Header/>
+            <AppRoutes/>
+            <Drawer
+                title="New request"
+                placement="right"
+                closable={false}
+                onClose={onClose}
+                visible={visible}
+            >
+                {userProcesses}
+            </Drawer>
+        </div>
+    );
 };

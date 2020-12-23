@@ -8,18 +8,7 @@
         justify-content: getJustify(fe);
         align-items: getAlign(c);
     }
-}
-
-.header__content {
-    width: 100%;
     @include font-source-sans (14px, black, normal );
-}
-
-.header__content--auth{
-    @include d-flex {
-        justify-content: getJustify(sb);
-        align-items: getAlign(c);
-    }
 }
 
 .header__profile-text {

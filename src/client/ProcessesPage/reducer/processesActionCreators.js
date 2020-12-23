@@ -1,7 +1,7 @@
 import {parseStringPromise} from 'xml2js'
 
 import {
-    SET_DRAWER_ACTIVE, SET_DRAWER_INACTIVE,
+    SET_DRAWER_ACTIVE, SET_DRAWER_INACTIVE, SET_PROCESSES_DEFINITIONS,
     SET_PROCESSES_ID,
     SET_PROCESSES_TASKS,
 } from './processesActions';
@@ -23,6 +23,10 @@ export const setDrawerActive = () => {
 
 export const setDrawerInactive = () => {
     return { type: SET_DRAWER_INACTIVE };
+};
+
+export const setProcessesDefinitions = (payload) => {
+    return { type: SET_PROCESSES_DEFINITIONS, payload };
 };
 
 export const processesIdRequestCreator = () => {
@@ -98,6 +102,24 @@ export const processesXMLRequestCreator = (processesIdUpdated) => {
                     }
                     dispatch(setProcessesTasks(tasks))
                 })
+        } catch (err) {
+            console.log(err);
+        }
+    }
+};
+
+export const processesDefinitionsRequestCreator = () => {
+    return async ( dispatch ) => {
+        try {
+            await processesService.getProcessDefinitions()
+                .then((res) => res.map(element => ({
+                    key: element.key,
+                    name: element.name
+                })))
+                .then((processesDefinitions) => {
+                    const uniDefinitions = Array.from(new Set(processesDefinitions.map(JSON.stringify))).map(JSON.parse);
+                    dispatch(setProcessesDefinitions(uniDefinitions));
+                });
         } catch (err) {
             console.log(err);
         }

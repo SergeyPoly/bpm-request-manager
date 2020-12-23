@@ -12,20 +12,10 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-}
-
-.header__content {
-  width: 100%;
   font-family: Roboto, sans-serif;
   font-size: 14px;
   color: black;
   font-weight: normal;
-}
-
-.header__content--auth {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .header__profile-text {
