@@ -1,0 +1,24 @@
+@import "src/shared/styles/scss/shared";
+
+.field-label-primary {
+    display: block;
+    @include font-source-sans (1rem, black, normal );
+}
+
+.field-label-secondary {
+    display: inline-block;
+    @include font-source-sans (1rem, black, normal );
+    margin-left: 10px;
+}
+
+.form-field-primary {
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: $background-color--fields;
+}
+
+.form-field-secondary {
+    margin-bottom: 20px;
+}

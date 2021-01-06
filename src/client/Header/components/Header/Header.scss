@@ -1,14 +1,13 @@
-@import "../../../../shared/styles/scss/style.scss";
+@import "src/shared/styles/scss/shared";
 
 .header {
-    width: 100%;
     height: 45px;
     background-color: $background-color--main-layout;
     @include d-flex {
         justify-content: getJustify(fe);
         align-items: getAlign(c);
     }
-    @include font-source-sans (14px, black, normal );
+    @include font-source-sans (1rem, black, normal );
 }
 
 .header__profile-text {

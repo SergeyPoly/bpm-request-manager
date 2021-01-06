@@ -1,5 +1,8 @@
 import {
-    SET_DRAWER_ACTIVE, SET_DRAWER_INACTIVE, SET_PROCESSES_DEFINITIONS,
+    SET_DRAWER_ACTIVE,
+    SET_DRAWER_INACTIVE,
+    SET_FORMS_FIELDS, SET_MODAL_ACTIVE, SET_MODAL_INACTIVE,
+    SET_PROCESSES_DEFINITIONS,
     SET_PROCESSES_ID,
     SET_PROCESSES_TASKS,
 } from './processesActions';
@@ -10,6 +13,8 @@ const initialState = {
     tasks: [],
     processesDefinitions: [],
     drawerActive: false,
+    formFields: [],
+    modalActive: false,
 };
 
 export const processesReducer = (state = initialState, { type, payload }) => {
@@ -24,6 +29,12 @@ export const processesReducer = (state = initialState, { type, payload }) => {
             return { ...state, drawerActive: true };
         case SET_DRAWER_INACTIVE:
             return { ...state, drawerActive: false };
+        case SET_FORMS_FIELDS:
+            return { ...state, formFields: payload };
+        case SET_MODAL_ACTIVE:
+            return { ...state, modalActive: true };
+        case SET_MODAL_INACTIVE:
+            return { ...state, modalActive: false };
         default:
             return state;
     }

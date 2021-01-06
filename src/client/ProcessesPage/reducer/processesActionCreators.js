@@ -1,7 +1,10 @@
 import {parseStringPromise} from 'xml2js'
 
 import {
-    SET_DRAWER_ACTIVE, SET_DRAWER_INACTIVE, SET_PROCESSES_DEFINITIONS,
+    SET_DRAWER_ACTIVE,
+    SET_DRAWER_INACTIVE,
+    SET_FORMS_FIELDS, SET_MODAL_ACTIVE, SET_MODAL_INACTIVE,
+    SET_PROCESSES_DEFINITIONS,
     SET_PROCESSES_ID,
     SET_PROCESSES_TASKS,
 } from './processesActions';
@@ -25,8 +28,20 @@ export const setDrawerInactive = () => {
     return { type: SET_DRAWER_INACTIVE };
 };
 
+export const setModalActive = () => {
+    return { type: SET_MODAL_ACTIVE };
+};
+
+export const setModalInactive = () => {
+    return { type: SET_MODAL_INACTIVE };
+};
+
 export const setProcessesDefinitions = (payload) => {
     return { type: SET_PROCESSES_DEFINITIONS, payload };
+};
+
+export const setProcessesFormsFields = (payload) => {
+    return { type: SET_FORMS_FIELDS, payload };
 };
 
 export const processesIdRequestCreator = () => {
@@ -69,25 +84,25 @@ export const processesXMLRequestCreator = (processesIdUpdated) => {
     return async ( dispatch ) => {
         try {
             let tasks = [...processesIdUpdated];
-            let XMLpropcessData = [];
+            let XMLprocessData = [];
             const keys = tasks.map(({key}) => key);
             const uniKey = Array.from(new Set(keys));
-            const taskRequests = uniKey.map(element => processesService.getProcessName(element));
+            const taskRequests = uniKey.map(element => processesService.getProcessPropertiesXML(element));
             Promise.all(taskRequests)
                 .then(responses => responses.map(
                     async response => {
                         let result = await parseStringPromise(response.bpmn20Xml)
                             .then(result => {
                                 const processedXML = result['bpmn:definitions']['bpmn:process'][0]['$'];
-                                XMLpropcessData.push(processedXML);
+                                XMLprocessData.push(processedXML);
                             });
-                        return XMLpropcessData
+                        return XMLprocessData
                     })
                 )
                 .then(result => {
-                    for (let i = 0; i < XMLpropcessData.length; i++) {
-                        tasks = tasks.map(element => element.key === XMLpropcessData[i].id ?
-                            {...element, name: XMLpropcessData[i].name} : element);
+                    for (let i = 0; i < XMLprocessData.length; i++) {
+                        tasks = tasks.map(element => element.key === XMLprocessData[i].id ?
+                            {...element, name: XMLprocessData[i].name} : element);
                     }
                     tasks = tasks.map(({key, id, ...rest}) => ({...rest}));
                     const options = {
@@ -119,6 +134,25 @@ export const processesDefinitionsRequestCreator = () => {
                 .then((processesDefinitions) => {
                     const uniDefinitions = Array.from(new Set(processesDefinitions.map(JSON.stringify))).map(JSON.parse);
                     dispatch(setProcessesDefinitions(uniDefinitions));
+                });
+        } catch (err) {
+            console.log(err);
+        }
+    }
+};
+
+export const processesFormFieldsRequestCreator = (key) => {
+    return async ( dispatch ) => {
+        try {
+            await processesService.getProcessPropertiesXML(key)
+                .then(res => parseStringPromise(res.bpmn20Xml))
+                .then(result => {
+                    const processedXML = result['bpmn:definitions']['bpmn:process'][0]['bpmn:startEvent'][0]['bpmn:extensionElements'][0]['camunda:formData'][0]['camunda:formField'];
+                    const formFields = processedXML.map(element => element['camunda:value'] ?
+                        {...element['$'], options: element['camunda:value'].map(element => element['$'])} :
+                        element['$']);
+                    dispatch(setProcessesFormsFields(formFields));
+                    dispatch(setModalActive())
                 });
         } catch (err) {
             console.log(err);

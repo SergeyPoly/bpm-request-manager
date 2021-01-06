@@ -1,4 +1,4 @@
-@import '../../../../shared/styles/scss/style.scss';
+@import "src/shared/styles/scss/shared";
 
 .login-page {
     padding-top: 9%;
@@ -6,6 +6,10 @@
         justify-content: getJustify(c);
         align-items: getAlign(c);
     }
+}
+
+.login-page__form {
+    width: 230px;
 }
 
 .login-page__reminder_button {
@@ -17,13 +21,14 @@
 
 .form-field-label {
     display: block;
+    @include font-source-sans (1rem, black, normal );
 }
 
 .form-field {
     border: none;
     border-radius: 5px;
     margin-bottom: 20px;
-    width: 230px;
+    width: 100%;
     background-color: $background-color--fields;
 }
 
