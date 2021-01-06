@@ -2,15 +2,15 @@ export const loginFormFields = {
     username: {
         type: "text",
         name: "username",
-        label: "User name",
+        label: "Ім'я користувача",
     },
     password: {
         type: "password",
         name: "password",
-        label: "Password"
+        label: "Пароль"
     },
     submit: {
-        value: "login",
+        value: "увійти",
         type: "submit",
         name: "submit",
     }

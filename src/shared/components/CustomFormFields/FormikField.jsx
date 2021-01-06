@@ -7,7 +7,9 @@ export const FormikField = ({ label, options, ...props }) => {
     const fieldType = props.type;
     const [field] = useField(props);
     const labelClassName = fieldType === 'checkbox' ? 'field-label-secondary' : 'field-label-primary';
-    const fieldClassName = fieldType === 'checkbox' || fieldType === 'file' ? 'form-field-secondary' : 'form-field-primary';
+    const fieldClassName = fieldType === 'checkbox' ?
+        'form-field-secondary' :
+        fieldType === 'file' ? 'form-field-third' : 'form-field-primary';
     const labelField = <label className={labelClassName} htmlFor={props.name}>{label}</label>;
     const currentField = options ?
         <select className={fieldClassName} {...field} {...props}>

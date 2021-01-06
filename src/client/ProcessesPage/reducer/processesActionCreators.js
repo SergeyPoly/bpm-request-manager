@@ -2,7 +2,7 @@ import {parseStringPromise} from 'xml2js'
 
 import {
     SET_DRAWER_ACTIVE,
-    SET_DRAWER_INACTIVE,
+    SET_DRAWER_INACTIVE, SET_FORM_TITLE,
     SET_FORMS_FIELDS, SET_MODAL_ACTIVE, SET_MODAL_INACTIVE,
     SET_PROCESSES_DEFINITIONS,
     SET_PROCESSES_ID,
@@ -42,6 +42,10 @@ export const setProcessesDefinitions = (payload) => {
 
 export const setProcessesFormsFields = (payload) => {
     return { type: SET_FORMS_FIELDS, payload };
+};
+
+export const setProcessesFormTitle = (payload) => {
+    return { type: SET_FORM_TITLE, payload };
 };
 
 export const processesIdRequestCreator = () => {

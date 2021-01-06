@@ -14,7 +14,7 @@ export const Header = () => {
     const userName = useSelector(state => state.login.userName, shallowEqual);
     const dispatch = useDispatch();
     const handleLogoutClick = () => {dispatch(logoutRequestCreator())};
-    const userProfile = `User: ${userName}`;
+    const userProfile = `Користувач: ${userName}`;
 
     const headerContent = isAuthorized ?
         <LogoutProfile

@@ -8,7 +8,7 @@ import { Header } from '../../../client/Header/components/Header';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     processesFormFieldsRequestCreator,
-    setDrawerInactive, setModalInactive,
+    setDrawerInactive, setModalInactive, setProcessesFormTitle,
 } from '../../../client/ProcessesPage/reducer/processesActionCreators';
 import { NewProcessForm } from '../../../client/ProcessesPage/components/NewProcessForm';
 
@@ -16,6 +16,7 @@ export const App = () => {
     const drawerVisible = useSelector(store => store.processes.drawerActive);
     const modalVisible = useSelector(store => store.processes.modalActive);
     const processesDefinitions = useSelector(store => store.processes.processesDefinitions);
+    const formTitle = useSelector(store => store.processes.formTitle);
     const dispatch = useDispatch();
 
     const userProcesses = processesDefinitions.map(element => (
@@ -24,6 +25,7 @@ export const App = () => {
                 onClick={() => {
                     dispatch(setDrawerInactive());
                     dispatch(processesFormFieldsRequestCreator(element.key));
+                    dispatch(setProcessesFormTitle(element.name));
                 }}
                 style={{'cursor': 'pointer'}}
             >{element.name}</p>
@@ -47,7 +49,7 @@ export const App = () => {
             <Header/>
             <AppRoutes/>
             <Drawer
-                title="New request"
+                title="Новий запит"
                 placement="right"
                 closable={false}
                 onClose={onClose}
@@ -56,7 +58,7 @@ export const App = () => {
                 {userProcesses}
             </Drawer>
             <Modal
-                title="New request"
+                title={formTitle}
                 visible={modalVisible}
                 onOk={handleOk}
                 centered={true}

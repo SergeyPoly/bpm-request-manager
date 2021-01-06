@@ -45,7 +45,7 @@ export const NewProcessForm = () => {
             <Form>
                 <div>
                     {fields}
-                    <SubmitInput type={"submit"} value={"send"} name={"submit"}/>
+                    <SubmitInput type={"submit"} value={"створити"} name={"submit"}/>
                 </div>
             </Form>
         </Formik>

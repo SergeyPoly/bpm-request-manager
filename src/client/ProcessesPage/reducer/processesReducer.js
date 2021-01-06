@@ -1,6 +1,6 @@
 import {
     SET_DRAWER_ACTIVE,
-    SET_DRAWER_INACTIVE,
+    SET_DRAWER_INACTIVE, SET_FORM_TITLE,
     SET_FORMS_FIELDS, SET_MODAL_ACTIVE, SET_MODAL_INACTIVE,
     SET_PROCESSES_DEFINITIONS,
     SET_PROCESSES_ID,
@@ -15,6 +15,7 @@ const initialState = {
     drawerActive: false,
     formFields: [],
     modalActive: false,
+    formTitle: '',
 };
 
 export const processesReducer = (state = initialState, { type, payload }) => {
@@ -31,6 +32,8 @@ export const processesReducer = (state = initialState, { type, payload }) => {
             return { ...state, drawerActive: false };
         case SET_FORMS_FIELDS:
             return { ...state, formFields: payload };
+        case SET_FORM_TITLE:
+            return { ...state, formTitle: payload };
         case SET_MODAL_ACTIVE:
             return { ...state, modalActive: true };
         case SET_MODAL_INACTIVE:

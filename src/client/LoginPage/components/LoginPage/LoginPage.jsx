@@ -22,7 +22,7 @@ export const LoginPage = () => {
             <div className={'login-page__form'}>
                 {currentForm}
                 <SpanButton
-                    text={!reminderFormActive ? 'Forgot password?' : 'Back'}
+                    text={!reminderFormActive ? 'Забули пароль?' : 'Повернутись'}
                     classNames={['login-page__reminder_button']}
                     handleClick={handleClick}
                 />

@@ -22,7 +22,7 @@ export const loginReducer = (state = initialState, { type, payload }) => {
         case LOGIN_SUCCESS:
             return { ...state, isAuthorized: true, loading: false, userName: payload, };
         case LOGIN_FAILED:
-            const errorMessage = (payload === 401) ? 'wrong login or password' : `server error: ${payload}`;
+            const errorMessage = (payload === 401) ? 'невірний логін або пароль' : `помилка серверу: ${payload}`;
             return { ...state, isAuthorized: false, loading: false, errorMessage };
         case LOGOUT:
             return { ...state, isAuthorized: false, userName: null, errorMessage: null };

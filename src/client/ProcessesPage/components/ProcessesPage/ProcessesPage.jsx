@@ -34,7 +34,7 @@ export const ProcessesPage = () => {
                 className={`processes-page__new-request ${hiddenClass}`}
                 onClick={handleDrawerClick}
             >
-                <span>New request</span>
+                <span>Новий запит</span>
             </div>
         </div>
     );

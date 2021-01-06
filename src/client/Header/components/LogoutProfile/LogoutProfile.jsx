@@ -9,7 +9,7 @@ export const LogoutProfile = props => {
         <div>
             <span className={'header__profile-text'}>{userProfile}</span>
             <Button
-                text={'log out'}
+                text={'вихід'}
                 classNames={['header__logout_button']}
                 handleClick={handleClick}
             />

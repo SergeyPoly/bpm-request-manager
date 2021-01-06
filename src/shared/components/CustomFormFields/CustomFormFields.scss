@@ -22,3 +22,34 @@
 .form-field-secondary {
     margin-bottom: 20px;
 }
+
+.form-field-third {
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.form-field-third::-webkit-file-upload-button {
+    display: none;
+}
+
+.form-field-third::before {
+    content: 'Оберіть файл';
+    display: inline-block;
+    background-color: $background-color--fields;
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 3px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.form-field-third:hover::before {
+    border-color: black;
+}
+
+

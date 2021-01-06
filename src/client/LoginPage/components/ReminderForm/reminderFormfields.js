@@ -2,7 +2,7 @@ export const reminderFormfields = {
     username: {
         type: "text",
         name: "userName",
-        label: "User name",
+        label: "Ім'я користувача",
     },
     email: {
         type: "email",
@@ -10,7 +10,7 @@ export const reminderFormfields = {
         label: "Email"
     },
     submit: {
-        value: "Remind",
+        value: "нагадати",
         type: "submit",
         name: "submit",
     }
