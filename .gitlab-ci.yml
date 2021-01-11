@@ -1,17 +1,25 @@
-image: node:12.10.0
-
-before_script:
-  - npm i -g yarn
-  - yarn install
-
-pages:
+# This file is a template, and might need editing before it works on your project.
+docker-build-master:
+  stage: build
+  before_script:
+  #  - echo $CI_REGISTRY_USER
+  #  - echo $CI_REGISTRY
+    # - sudo docker login -u build -p !QAZ2wsx $CI_REGISTRY
+  script:
+   # - echo $CI_REGISTRY_USER
+   # - echo $CI_REGISTRY
+    - docker build -t test .
+  #  - sudo docker push "$CI_REGISTRY_IMAGE"
+  only:
+    - master
+  tags:
+    - sgpi1
+docker-run-master:
   stage: deploy
   script:
-    - CI=true npm run build
-    - rm -rf public
-    - mv build public
-  artifacts:
-    paths:
-      - public # GitLab pages serve from a 'public' directory
+    - docker stop $(docker ps -a -q)
+    - docker run -d -p 3300:3000 test
   only:
-    - dev # run on dev branch
+    - master
+  tags:
+    - sgpi1
