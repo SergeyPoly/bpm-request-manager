@@ -164,3 +164,18 @@ export const processesFormFieldsRequestCreator = (key) => {
     }
 };
 
+export const newProcessRequestCreator = (formKey, formData) => {
+    return async ( dispatch ) => {
+        try {
+            await processesService.startNewProcess(formKey, formData)
+                .then(res => {
+                    if (res.status === 200) {
+                        dispatch(processesIdRequestCreator());
+                        // dispatch(processesDefinitionsRequestCreator())
+                    }
+                });
+        } catch (err) {
+            console.log(err);
+        }
+    }
+};

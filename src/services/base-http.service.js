@@ -22,7 +22,9 @@ export default class BaseHttpService {
         Object.assign(options, this._getCommonOptions());
         return axios
             .post(`${this.BASE_URL}/${endpoint}`, data, options)
-            .then((res) => res.data)
+            .then((res) => {
+                return {data: res.data, status: res.status}
+            })
             .catch((error) => this._handleHttpError(error));
     }
 

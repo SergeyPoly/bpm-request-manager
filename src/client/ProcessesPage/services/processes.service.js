@@ -3,7 +3,7 @@ import BaseHttpService from '../../../services/base-http.service';
 export default class ProcessesIdService extends BaseHttpService {
     async getProcessesId() {
         const endpoint = 'engine-rest/engine/default/process-instance';
-        const {username} = this.username;
+        const {username} = this.loadUsername();
         const body = {
             variables:
                 [
@@ -25,8 +25,8 @@ export default class ProcessesIdService extends BaseHttpService {
                     }
                 ],
         };
-        const response = await this.post(endpoint, body);
-        return response;
+        const {data} = await this.post(endpoint, body);
+        return data;
     }
 
     async getProcessTask(id) {
@@ -46,6 +46,17 @@ export default class ProcessesIdService extends BaseHttpService {
         const {tenantId} = this.loadTenantId();
         const endpoint = `engine-rest/engine/default/process-definition?tenantIdIn=${tenantId}`;
         const response = await this.get(endpoint);
+        return response;
+    }
+
+    async startNewProcess(key, data) {
+        const {tenantId} = this.loadTenantId();
+        const body = {
+            variables: data,
+            withVariablesInReturn: true
+        };
+        const endpoint = `engine-rest/engine/default/process-definition/key/${key}/tenant-id/${tenantId}/start`;
+        const response = this.post(endpoint, body);
         return response;
     }
 };

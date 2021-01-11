@@ -25,7 +25,7 @@ export const App = () => {
                 onClick={() => {
                     dispatch(setDrawerInactive());
                     dispatch(processesFormFieldsRequestCreator(element.key));
-                    dispatch(setProcessesFormTitle(element.name));
+                    dispatch(setProcessesFormTitle({name: element.name, key: element.key}));
                 }}
                 style={{'cursor': 'pointer'}}
             >{element.name}</p>

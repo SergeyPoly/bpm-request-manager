@@ -16,6 +16,7 @@ const initialState = {
     formFields: [],
     modalActive: false,
     formTitle: '',
+    formKey: '',
 };
 
 export const processesReducer = (state = initialState, { type, payload }) => {
@@ -33,7 +34,7 @@ export const processesReducer = (state = initialState, { type, payload }) => {
         case SET_FORMS_FIELDS:
             return { ...state, formFields: payload };
         case SET_FORM_TITLE:
-            return { ...state, formTitle: payload };
+            return { ...state, formTitle: payload.name, formKey: payload.key };
         case SET_MODAL_ACTIVE:
             return { ...state, modalActive: true };
         case SET_MODAL_INACTIVE:
