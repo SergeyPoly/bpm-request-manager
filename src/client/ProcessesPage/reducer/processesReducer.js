@@ -1,4 +1,5 @@
 import {
+    RESET_DATA,
     SET_DRAWER_ACTIVE,
     SET_DRAWER_INACTIVE, SET_FORM_TITLE,
     SET_FORMS_FIELDS, SET_MODAL_ACTIVE, SET_MODAL_INACTIVE,
@@ -39,6 +40,8 @@ export const processesReducer = (state = initialState, { type, payload }) => {
             return { ...state, modalActive: true };
         case SET_MODAL_INACTIVE:
             return { ...state, modalActive: false };
+        case RESET_DATA:
+            return { ...state, processesId: [], tasks: [], processesDefinitions: [], formFields: [], formTitle: '', formKey: ''};
         default:
             return state;
     }

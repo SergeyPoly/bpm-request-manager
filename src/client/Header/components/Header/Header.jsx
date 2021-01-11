@@ -8,12 +8,16 @@ import {
     logoutRequestCreator,
 } from '../../../LoginPage/reducer/loginActionCreators';
 import { LogoutProfile } from '../LogoutProfile';
+import { resetData } from '../../../ProcessesPage/reducer/processesActionCreators';
 
 export const Header = () => {
     const isAuthorized = useSelector(state => state.login.isAuthorized, shallowEqual);
     const userName = useSelector(state => state.login.userName, shallowEqual);
     const dispatch = useDispatch();
-    const handleLogoutClick = () => {dispatch(logoutRequestCreator())};
+    const handleLogoutClick = () => {
+        dispatch(logoutRequestCreator());
+        dispatch(resetData())
+    };
     const userProfile = `Користувач: ${userName}`;
 
     const headerContent = isAuthorized ?

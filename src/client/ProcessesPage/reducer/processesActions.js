@@ -7,6 +7,7 @@ export const SET_FORMS_FIELDS = "SET_FORMS_FIELDS";
 export const SET_FORM_TITLE = "SET_FORM_TITLE";
 export const SET_MODAL_ACTIVE = "SET_MODAL_ACTIVE";
 export const SET_MODAL_INACTIVE = "SET_MODAL_INACTIVE";
+export const RESET_DATA = "RESET_DATA";
 
 
 

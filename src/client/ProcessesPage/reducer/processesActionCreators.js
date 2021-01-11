@@ -1,6 +1,7 @@
 import {parseStringPromise} from 'xml2js'
 
 import {
+    RESET_DATA,
     SET_DRAWER_ACTIVE,
     SET_DRAWER_INACTIVE, SET_FORM_TITLE,
     SET_FORMS_FIELDS, SET_MODAL_ACTIVE, SET_MODAL_INACTIVE,
@@ -46,6 +47,10 @@ export const setProcessesFormsFields = (payload) => {
 
 export const setProcessesFormTitle = (payload) => {
     return { type: SET_FORM_TITLE, payload };
+};
+
+export const resetData = () => {
+    return { type: RESET_DATA };
 };
 
 export const processesIdRequestCreator = () => {
@@ -171,7 +176,6 @@ export const newProcessRequestCreator = (formKey, formData) => {
                 .then(res => {
                     if (res.status === 200) {
                         dispatch(processesIdRequestCreator());
-                        // dispatch(processesDefinitionsRequestCreator())
                     }
                 });
         } catch (err) {
