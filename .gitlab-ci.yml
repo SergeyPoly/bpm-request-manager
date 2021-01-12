@@ -13,7 +13,7 @@ docker-build-master:
   only:
     - master
   tags:
-    - sgpi1
+    - masternode
 docker-run-master:
   stage: deploy
   script:
@@ -22,4 +22,4 @@ docker-run-master:
   only:
     - master
   tags:
-    - sgpi1
+    - masternode
