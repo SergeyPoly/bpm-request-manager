@@ -18,7 +18,7 @@ docker-run-master:
   stage: deploy
   script:
     - docker stop $(docker ps -a -q)
-    - docker run -d -p 3300:3000 test
+    - docker run -d -p 3000:3000 test
   only:
     - master
   tags:
