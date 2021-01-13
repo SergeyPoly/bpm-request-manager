@@ -17,9 +17,12 @@ docker-build-master:
 docker-run-master:
   stage: deploy
   script:
-    - docker stop $(docker ps -q --filter ancestor=bpm-request-manager)
+    - if [[ $(docker ps -q --filter ancestor=bpm-request-manager) ]]; then
+        docker stop $(docker ps -q --filter ancestor=bpm-request-manager)
+      else
+        echo "no bpm-request-manager containers are running"
+      fi
     - docker run -d -p 3000:80 bpm-request-manager
-  allow_failure: true
   only:
     - master
   tags:
