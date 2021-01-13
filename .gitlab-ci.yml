@@ -18,7 +18,7 @@ docker-run-master:
   stage: deploy
   script:
     - >
-      if [$(docker ps -q --filter ancestor=bpm-request-manager) ]; then
+      if [$(docker ps -q --filter ancestor=bpm-request-manager) != ""]; then
         docker stop $(docker ps -q --filter ancestor=bpm-request-manager)
       else
         echo "There are NO bpm-request-manager containers running"
