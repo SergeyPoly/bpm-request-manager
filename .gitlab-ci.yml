@@ -19,6 +19,7 @@ docker-run-master:
   script:
     - docker stop $(docker ps -q --filter ancestor=bpm-request-manager)
     - docker run -d -p 3000:80 bpm-request-manager
+  allow_failure: true
   only:
     - master
   tags:
