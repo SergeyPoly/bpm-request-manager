@@ -21,7 +21,7 @@ docker-run-master:
       if [$(docker ps -q --filter ancestor=bpm-request-manager) ]; then
         docker stop $(docker ps -q --filter ancestor=bpm-request-manager)
       else
-        echo "no bpm-request-manager containers are running"
+        echo "There are NO bpm-request-manager containers running"
       fi
     - docker run -d -p 3000:80 bpm-request-manager
   only:
