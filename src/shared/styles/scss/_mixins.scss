@@ -1,4 +1,5 @@
 @import "variables";
+@import "functions";
 
 @mixin font-source-sans($size: false, $colour: false, $weight: false) {
     font-family: Roboto, sans-serif;
@@ -7,19 +8,14 @@
     @if $weight { font-weight: $weight; }
 }
 
-@mixin media-query($width, $type: min) {
-    @if map_has_key($breakpoints, $width) {
-        $width: map_get($breakpoints, $width);
-        @if $type == max {
-            $width: $width - 1px;
-        }
-        @media only screen and (#{$type}-width: $width) {
-            @content;
-        }
-    }
-}
-
-@mixin d-flex(){
+@mixin flex($main-axis: flex-start, $cross-axis: stretch) {
     display: flex;
-    @content
+    flex-wrap: wrap;
+
+    @if $main-axis != flex-start {
+        justify-content: $main-axis;
+    }
+    @if $cross-axis != stretch {
+        align-items: $cross-axis;
+    }
 }

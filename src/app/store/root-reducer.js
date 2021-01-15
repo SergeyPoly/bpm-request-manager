@@ -1,10 +1,13 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import { loginReducer } from '../../client/LoginPage/reducer/loginReducer'
-import { processesReducer } from '../../client/ProcessesPage/reducer/processesReducer';
+
+import { authReducer } from '../../client/AuthPage/reducer/authReducer'
+import { requestsReducer } from '../../client/RequestsPage/reducer/requestsReducer';
+import { headerReducer } from '../../client/Header/reducer/headerReducer';
 
 const rootReducer = combineReducers({
-    login: loginReducer,
-    processes: processesReducer,
+    auth: authReducer,
+    requests: requestsReducer,
+    header: headerReducer
 });
 
 export default rootReducer;

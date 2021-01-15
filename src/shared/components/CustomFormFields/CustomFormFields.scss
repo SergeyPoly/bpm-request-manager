@@ -1,5 +1,12 @@
 @import "src/shared/styles/scss/shared";
 
+.form {
+    &-submit-container {
+        padding-top: 20px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+}
 .field-label-primary {
     display: block;
     @include font-source-sans (1rem, black, normal );
@@ -16,7 +23,7 @@
     border-radius: 5px;
     margin-bottom: 15px;
     width: 100%;
-    background-color: $background-color--fields;
+    background-color: $background-color--secondary;
 }
 
 .form-field-secondary {
@@ -35,7 +42,7 @@
 .form-field-third::before {
     content: 'Оберіть файл';
     display: inline-block;
-    background-color: $background-color--fields;
+    background-color: $background-color--secondary;
     border: 1px solid #999;
     border-radius: 3px;
     padding: 3px 8px;

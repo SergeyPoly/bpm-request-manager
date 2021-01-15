@@ -1,17 +1,25 @@
 import React from 'react';
-import SpanButton from '../../../../shared/components/SpanButton';
+import { useDispatch } from 'react-redux';
 
-export const LangSwitcher = props => {
+import Button from '../../../../shared/components/Button';
+import { setCurrentLanguage } from '../../reducer/headerActionCreators';
+
+
+export const LangSwitcher = () => {
+    const dispatch = useDispatch();
+
     return (
-        <div className={'header__lang-switch'}>
-            <SpanButton
-                text={'UA'}
-                classNames={['header__lang-switch_button']}
+        <div>
+            <Button
+                text='UA'
+                classType='transparent'
+                handleClick={() => dispatch(setCurrentLanguage('ua'))}
             />
             <span>|</span>
-            <SpanButton
-                text={'EN'}
-                classNames={['header__lang-switch_button']}
+            <Button
+                text='EN'
+                classType='transparent'
+                handleClick={() => dispatch(setCurrentLanguage('en'))}
             />
         </div>
     );

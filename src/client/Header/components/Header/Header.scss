@@ -1,29 +1,9 @@
 @import "src/shared/styles/scss/shared";
 
 .header {
-    height: 45px;
-    background-color: $background-color--main-layout;
-    @include d-flex {
-        justify-content: getJustify(fe);
-        align-items: getAlign(c);
-    }
+    padding: 15px 0;
+    @include flex (flex-end, center);
     @include font-source-sans (1rem, black, normal );
 }
 
-.header__profile-text {
-    padding-right: 20px;
-}
-
-.header__logout_button {
-    background-color: transparent;
-}
-
-.header__lang-switch_button {
-    background-color: transparent;
-    padding: 0px 5px;
-}
-
-.header__lang-switch {
-    float: right;
-}
 

@@ -1,0 +1,1 @@
+export { LogoutContent } from './LogoutContent'

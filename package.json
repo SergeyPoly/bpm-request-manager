@@ -1,12 +1,11 @@
 {
-    "name": "bogdan",
+    "name": "bpm-request-manager",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
         "@reduxjs/toolkit": "^1.4.0",
         "antd": "^4.8.0",
         "axios": "^0.21.0",
-        "bootstrap": "^5.0.0-alpha1",
         "formik": "^2.2.5",
         "prop-types": "^15.7.2",
         "react": "^16.13.1",
@@ -18,8 +17,10 @@
         "react-xml-parser": "^1.1.8",
         "redux": "^4.0.5",
         "redux-thunk": "^2.3.0",
+        "uuid": "^8.3.2",
         "web-vitals": "^0.2.4",
-        "xml2js": "^0.4.23"
+        "xml2js": "^0.4.23",
+        "yup": "^0.32.8"
     },
     "devDependencies": {
         "eslint-config-airbnb": "^18.2.0",

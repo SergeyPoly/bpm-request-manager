@@ -53,7 +53,7 @@ export const FormikField = ({ label, options, ...props }) => {
             />;
     return (
         <div>
-            {type === 'text' || type === 'number' || type === 'date' || type === 'file' || type === 'select' ? labelField : null}
+            {type === 'text' || type === 'number' || type === 'date' || type === 'file' || type === 'select' || type === 'password' || type === 'email' ? labelField : null}
             {currentField}
             {type === 'checkbox' ? labelField : null}
         </div>

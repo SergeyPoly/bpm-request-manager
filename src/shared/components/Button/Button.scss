@@ -1,5 +1,23 @@
-.base-button {
+@import "src/shared/styles/scss/shared";
+
+.button {
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    outline: none;
+
+    &-basic {
+        background-color: $background-color--primary;
+        @include font-source-sans (1rem, white, 700 );
+        padding: 0 30px;
+    }
+
+    &-transparent {
+        background-color: transparent;
+        padding: 0px 5px;
+    }
+
+    &-disabled {
+        cursor: not-allowed;
+    }
 }

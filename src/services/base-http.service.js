@@ -2,12 +2,9 @@ import axios from "axios";
 
 export default class BaseHttpService {
 
-    BASE_URL = "https://bpm.codot.pro:443";
-
+    BASE_URL = `${process.env.REACT_APP_BACKEND_URL}`;
     _accessToken = null;
-
     _tenantId = null;
-
     _username = null;
 
     async get(endpoint = "", options = {}) {

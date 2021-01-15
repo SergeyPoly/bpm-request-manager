@@ -1,0 +1,7 @@
+@import '../../styles/scss/style';
+
+.error-message {
+    @include font-source-sans (1rem, red, normal );
+    height: 20px;
+    text-align: center;
+}

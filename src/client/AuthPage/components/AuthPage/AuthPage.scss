@@ -1,0 +1,17 @@
+@import "src/shared/styles/scss/shared";
+
+.auth-page {
+    width: 100%;
+    @include flex (center, center);
+
+    &__form {
+        width: 230px;
+    }
+
+    &__reminder {
+        @include font-source-sans (1rem, black, normal );
+        display: block;
+        margin: 0 auto;
+    }
+}
+
