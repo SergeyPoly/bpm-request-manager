@@ -18,7 +18,7 @@ export const LogoutContent = () => {
         <div>
             <span style={{'paddingRight': '20px'}}>{profileText}</span>
             <Button
-                text='вихід'
+                text='Вихід'
                 classType='transparent'
                 handleClick={handleClick}
             />

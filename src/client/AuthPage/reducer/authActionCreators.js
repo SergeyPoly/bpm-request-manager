@@ -38,7 +38,11 @@ export const loginRequestCreator = ({ username, password }) => {
             await authServ.login({ username, password });
             dispatch(loginSuccess(username));
         } catch (err) {
-            dispatch(loginFailed(err.response.status));
+            if (err.name === 'InvalidCharacterError') {
+                dispatch(loginFailed(401));
+            } else {
+                dispatch(loginFailed(err.response.status));
+            }
         }
     }
 };

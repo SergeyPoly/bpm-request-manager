@@ -15,10 +15,14 @@ const base64FileConverter = (file) => {
 export const FormikField = ({ label, options, ...props }) => {
     const {type, name} = props;
     const [field, meta, helpers] = useField(props);
-    const labelClassName = type === 'checkbox' ? 'field-label-secondary' : 'field-label-primary';
+    const labelClassName = type === 'checkbox' ?
+        'form-label-secondary' :
+        'form-label-primary';
     const fieldClassName = type === 'checkbox' ?
         'form-field-secondary' :
-        type === 'file' ? 'form-field-third' : 'form-field-primary';
+        type === 'file' ?
+            'form-field-file' :
+            'form-field-primary';
     const labelField = <label className={labelClassName} htmlFor={name}>{label}</label>;
     const currentField = options ?
         <select className={fieldClassName} {...field} {...props}>
@@ -53,7 +57,7 @@ export const FormikField = ({ label, options, ...props }) => {
             />;
     return (
         <div>
-            {type === 'text' || type === 'number' || type === 'date' || type === 'file' || type === 'select' || type === 'password' || type === 'email' ? labelField : null}
+            {type !== 'checkbox' ? labelField : null}
             {currentField}
             {type === 'checkbox' ? labelField : null}
         </div>

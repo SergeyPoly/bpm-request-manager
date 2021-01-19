@@ -1,62 +1,76 @@
 @import "src/shared/styles/scss/shared";
 
 .form {
+
     &-submit-container {
         padding-top: 20px;
         text-align: center;
         margin-bottom: 30px;
     }
-}
-.field-label-primary {
-    display: block;
-    @include font-source-sans (1rem, black, normal );
+
+    &-label-primary {
+        display: block;
+        @include font-source-sans (1rem, black, normal );
+    }
+
+    &-label-secondary {
+        display: inline-block;
+        @include font-source-sans (1rem, black, normal);
+        margin-left: 10px;
+    }
+
+    &-field-primary {
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        width: 100%;
+        background-color: $background-color--secondary;
+    }
+
+    &-field-secondary {
+        margin-bottom: 15px;
+    }
+
+    &-field-file {
+        margin-bottom: 15px;
+        outline: none;
+
+        &::-webkit-file-upload-button {
+            display: none;
+        }
+
+        &::before {
+            content: 'Оберіть файл';
+            display: inline-block;
+            background-color: $background-color--secondary;
+            border: 1px solid #999;
+            border-radius: 3px;
+            padding: 3px 8px;
+            outline: none;
+            white-space: nowrap;
+            -webkit-user-select: none;
+            cursor: pointer;
+            text-shadow: 1px 1px #fff;
+            font-weight: 400;
+            font-size: 13px;
+        }
+
+        &:hover::before {
+            border-color: black;
+        }
+    }
 }
 
-.field-label-secondary {
-    display: inline-block;
-    @include font-source-sans (1rem, black, normal );
-    margin-left: 10px;
-}
 
-.form-field-primary {
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    width: 100%;
-    background-color: $background-color--secondary;
-}
 
-.form-field-secondary {
-    margin-bottom: 15px;
-}
 
-.form-field-third {
-    margin-bottom: 15px;
-    outline: none;
-}
 
-.form-field-third::-webkit-file-upload-button {
-    display: none;
-}
 
-.form-field-third::before {
-    content: 'Оберіть файл';
-    display: inline-block;
-    background-color: $background-color--secondary;
-    border: 1px solid #999;
-    border-radius: 3px;
-    padding: 3px 8px;
-    outline: none;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    cursor: pointer;
-    text-shadow: 1px 1px #fff;
-    font-weight: 400;
-    font-size: 13px;
-}
 
-.form-field-third:hover::before {
-    border-color: black;
-}
+
+
+
+
+
 
 
