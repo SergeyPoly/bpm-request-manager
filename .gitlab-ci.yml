@@ -23,7 +23,7 @@ docker-run-master:
         else
         echo "There are NO bpm-request-manager containers running"
         fi
-    - docker run -d -p 3000:80 bpm-request-manager
+    - docker run -d -p 3300:80 bpm-request-manager
   only:
     - master
   tags:
