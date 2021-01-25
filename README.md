@@ -4,7 +4,7 @@ UI of a service that allows authorized user to initialize processes, search/filt
 
 Technologies used
 ---
-React, Redux, Ant Design, Formik, Axios, I18next
+React, Redux, SCSS, Ant Design, Formik, Axios, I18next
 
 Try it
 ---
