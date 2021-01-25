@@ -1,4 +1,17 @@
-DEMO
+BPM-request-manager (DEMO)
+---
+UI of a service that allows authorized user to initialize processes, search/filter them and observe their current status.
 
-login: testUser
-password: testPassword
+Technologies used
+---
+React, Redux, Ant Design, Formik, Axios, I18next
+
+Try it
+---
+https://sergeypoly.github.io/bpm-request-manager
+
+Use "testUser" and "testPassword" to authorize.
+
+
+
+
