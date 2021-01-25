@@ -1,0 +1,26 @@
+{
+    "authPage": {
+        "username": "Ім'я користувача",
+        "password": "Пароль",
+        "email": "Електронна пошта",
+        "login": "Увійти",
+        "remind": "Нагадати",
+        "forgot": "Забули пароль?",
+        "return": "Повернутися",
+        "loginError": "невірний логін або пароль",
+        "serverError": "помилка серверу"
+    },
+    "header": {
+        "user": "Користувач",
+        "logout": "Вихід"
+    },
+    "requestPage": {
+        "newRequest": "Новий запит",
+        "tableColNumber": "Номер",
+        "tableColStatus": "Статус",
+        "tableColCreated": "Створено",
+        "tableColRequest": "Запит",
+        "send": "Створити"
+    }
+}
+

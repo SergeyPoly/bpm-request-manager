@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {types} from "./types"
+
 import './Button.scss'
 
 const Button = props => {

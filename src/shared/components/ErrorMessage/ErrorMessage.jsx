@@ -1,14 +1,17 @@
 import React from 'react';
-import { shallowEqual, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import './ErrorMessage.scss'
 
-export const ErrorMessage = () => {
-    const errorMessage = useSelector(state => state.auth.errorMessage, shallowEqual);
+export const ErrorMessage = ({text}) => {
 
     return (
         <div className={'error-message'}>
-            <span>{errorMessage}</span>
+            <span>{text}</span>
         </div>
     );
 };
 
+ErrorMessage.propTypes = {
+    text: PropTypes.string.isRequired,
+};

@@ -1,25 +1,23 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import Button from '../../../../shared/components/Button';
-import { setCurrentLanguage } from '../../reducer/headerActionCreators';
-
 
 export const LangSwitcher = () => {
-    const dispatch = useDispatch();
+    const {i18n} = useTranslation('common');
 
     return (
         <div>
             <Button
                 text='UA'
                 classType='transparent'
-                handleClick={() => dispatch(setCurrentLanguage('ua'))}
+                handleClick={() => i18n.changeLanguage('uk')}
             />
             <span>|</span>
             <Button
                 text='EN'
                 classType='transparent'
-                handleClick={() => dispatch(setCurrentLanguage('en'))}
+                handleClick={() => i18n.changeLanguage('en')}
             />
         </div>
     );

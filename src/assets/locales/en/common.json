@@ -1,0 +1,25 @@
+{
+    "authPage": {
+        "username": "User name",
+        "password": "Password",
+        "email": "E-mail",
+        "login": "Log in",
+        "remind": "Remind",
+        "forgot": "Forgot password?",
+        "return": "Return",
+        "loginError": "wrong login or password",
+        "serverError": "server error"
+    },
+    "header": {
+        "user": "User",
+        "logout": "Log out"
+    },
+    "requestPage": {
+        "newRequest": "New request",
+        "tableColNumber": "Number",
+        "tableColStatus": "Status",
+        "tableColCreated": "Created",
+        "tableColRequest": "Request",
+        "send": "Send"
+    }
+}

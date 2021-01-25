@@ -1,13 +1,11 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import { authReducer } from '../../client/AuthPage/reducer/authReducer'
-import { requestsReducer } from '../../client/RequestsPage/reducer/requestsReducer';
-import { headerReducer } from '../../client/Header/reducer/headerReducer';
+import { authSlice } from '../../client/Auth/reducer/authReducer'
+import { processesSlice } from '../../client/Processes/reducer/processesReducer';
 
 const rootReducer = combineReducers({
-    auth: authReducer,
-    requests: requestsReducer,
-    header: headerReducer
+    auth: authSlice.reducer,
+    processes: processesSlice.reducer,
 });
 
 export default rootReducer;

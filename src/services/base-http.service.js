@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 export default class BaseHttpService {
 
@@ -19,8 +20,8 @@ export default class BaseHttpService {
         Object.assign(options, this._getCommonOptions());
         return axios
             .post(`${this.BASE_URL}/${endpoint}`, data, options)
-            .then((res) => {
-                return {data: res.data, status: res.status}
+            .then(({data, status}) => {
+                return {data, status}
             })
             .catch((error) => this._handleHttpError(error));
     }
@@ -61,7 +62,8 @@ export default class BaseHttpService {
         this._tenantId = null;
         this._username = null;
         this.removeTenantData();
-        window.location.replace("/");
+        const history = useHistory();
+        history.push("/");
     };
 
     _getCommonOptions = () => {
@@ -79,7 +81,7 @@ export default class BaseHttpService {
     }
 
     loadAccessToken() {
-        const accessToken = localStorage.getItem("accessToken");
+        const accessToken = sessionStorage.getItem("accessToken");
         this._accessToken = accessToken;
 
         return {
@@ -92,7 +94,7 @@ export default class BaseHttpService {
     }
 
     loadUsername() {
-        const username = localStorage.getItem("username");
+        const username = sessionStorage.getItem("username");
         this._username = username;
 
         return {
@@ -105,7 +107,7 @@ export default class BaseHttpService {
     }
 
     loadTenantId() {
-        const tenantId = localStorage.getItem("tenantId");
+        const tenantId = sessionStorage.getItem("tenantId");
         this._tenantId = tenantId;
 
         return {
@@ -117,9 +119,9 @@ export default class BaseHttpService {
         this._username = username;
         this._accessToken = accessToken;
         this._tenantId = tenantId;
-        localStorage.setItem("username", username);
-        localStorage.setItem("tenantId", tenantId);
-        localStorage.setItem("accessToken", accessToken);
+        sessionStorage.setItem("username", username);
+        sessionStorage.setItem("tenantId", tenantId);
+        sessionStorage.setItem("accessToken", accessToken);
 
         return {
             username,
@@ -129,8 +131,8 @@ export default class BaseHttpService {
     };
 
     removeTenantData = () => {
-        localStorage.removeItem("username");
-        localStorage.removeItem("tenantId");
-        localStorage.removeItem("accessToken");
+        sessionStorage.removeItem("username");
+        sessionStorage.removeItem("tenantId");
+        sessionStorage.removeItem("accessToken");
     };
 }
