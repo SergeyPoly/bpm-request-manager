@@ -5,7 +5,12 @@ export const processesSlice = createSlice({
     initialState: {
         tableLoading: false,
         drawerActive: false,
-        modalActive: false,
+        newProcessModalActive: false,
+        stepsModalActive: false,
+        processStepsData: {
+            processSteps: [],
+            currentStepIndex: 0
+        },
         tableData: [],
         drawerOptions: [],
         formOptions: {
@@ -20,7 +25,9 @@ export const processesSlice = createSlice({
         setDrawerOptions: (state, action) => ({ ...state, drawerOptions: action.payload }),
         toggleDrawerStatus: state => ({ ...state, drawerActive: !state.drawerActive }),
         setFormOptions: (state, action) => ({ ...state, formOptions: action.payload }),
-        toggleModalStatus: state => ({ ...state, modalActive: !state.modalActive }),
+        toggleNewProcessModalStatus: state => ({ ...state, newProcessModalActive: !state.newProcessModalActive }),
+        toggleStepsModalStatus: state => ({ ...state, stepsModalActive: !state.stepsModalActive }),
+        setProcessSteps: (state, action) => ({ ...state, processStepsData: action.payload }),
         clearData: state => ({ ...state,
             tableData: [],
             drawerOptions: [],
@@ -39,7 +46,9 @@ export const {
     setDrawerOptions,
     toggleDrawerStatus,
     setFormOptions,
-    toggleModalStatus,
+    toggleNewProcessModalStatus,
+    toggleStepsModalStatus,
+    setProcessSteps,
     clearData
 } = processesSlice.actions;
 

@@ -3,7 +3,8 @@ import React from 'react';
 import { AppRoutes } from '../../routes';
 import { Header } from '../../../client/Header/components/Header';
 import { DrawerContainer } from '../../../client/Processes/components/DrawerContainer';
-import { ModalContainer } from '../../../client/Processes/components/ModalContainer';
+import { NewProcesessModal } from '../../../client/Processes/components/NewProcesessModal';
+import { StepsModal } from '../../../client/Processes/components/StepsModal';
 
 import '../../../shared/styles/scss/style.scss';
 
@@ -17,7 +18,8 @@ export const App = () => {
                 <AppRoutes/>
             </div>
             <DrawerContainer/>
-            <ModalContainer/>
+            <NewProcesessModal/>
+            <StepsModal/>
         </div>
     );
 };

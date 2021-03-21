@@ -1,15 +1,17 @@
 import React, {useState} from 'react';
-import { shallowEqual, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { Table, Input, Button, Space } from 'antd';
 import 'antd/dist/antd.css';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
+import { processStepsRequestCreator } from '../../reducer/processesActionCreators';
 
 export const TableContainer = () => {
     const dataSource = useSelector(({processes}) => processes.tableData, shallowEqual);
     const loading = useSelector(({processes}) => processes.tableLoading, shallowEqual);
     const {t} = useTranslation('common');
+    const dispatch = useDispatch();
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
     let searchInput = null;
@@ -142,6 +144,14 @@ export const TableContainer = () => {
             pagination={{position: ['bottomCenter']}}
             size="middle"
             loading={loading}
+            onRow={({processKey, status}, rowIndex) => {
+                return {
+                    onClick: event => {
+                        dispatch(processStepsRequestCreator(processKey, status))
+                    },
+                };
+            }}
+            rowClassName={(record, index) => 'custom-row-style'}
         />
     );
 };

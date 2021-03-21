@@ -5,8 +5,8 @@ import {
     setTableData,
     setDrawerOptions,
     setFormOptions,
-    toggleModalStatus
-} from './processesReducer'
+    toggleNewProcessModalStatus, toggleStepsModalStatus, setProcessSteps,
+} from './processesReducer';
 import ProcessesService from '../services/processes.service';
 
 const processesService = new ProcessesService();
@@ -19,7 +19,7 @@ export const processesIdRequestCreator = () => {
                 .then((res) => res.map(element => ({
                     id: element.id,
                     number: element.id.slice(0, 13),
-                    key: element.definitionId.split(':')[0]
+                    processKey: element.definitionId.split(':')[0]
                 })))
                 .then((processesId) => dispatch(processesStatusRequestCreator(processesId)));
         } catch (err) {
@@ -53,9 +53,9 @@ export const processesNamesRequestCreator = (processesIdUpdated) => {
         try {
             let tableData = [...processesIdUpdated];
             let processesKeysData = [];
-            const keys = tableData.map(({key}) => key);
+            const keys = tableData.map(({processKey}) => processKey);
             const uniKey = Array.from(new Set(keys));
-            const taskRequests = uniKey.map(element => processesService.getProcessName(element));
+            const taskRequests = uniKey.map(element => processesService.getProcessXML(element));
             Promise.all(taskRequests)
                 .then(responses => responses.map(
                     ({bpmn20Xml}) => {
@@ -70,10 +70,10 @@ export const processesNamesRequestCreator = (processesIdUpdated) => {
                 )
                 .then(result => {
                     processesKeysData.forEach((item)=> {
-                        tableData = tableData.map(element => element.key === item.id ?
+                        tableData = tableData.map(element => element.processKey === item.id ?
                             {...element, name: item.name} : element);
                     });
-                    tableData = tableData.map(({key, id, ...rest}) => rest);
+                    tableData = tableData.map(({id, ...rest}) => rest);
                     const options = {
                         year: 'numeric',
                         month: 'numeric',
@@ -113,7 +113,7 @@ export const drawerOptionsRequestCreator = () => {
 export const requestPageFormFieldsRequestCreator = (key, name) => {
     return async ( dispatch ) => {
         try {
-            await processesService.getProcessName(key)
+            await processesService.getProcessXML(key)
                 .then(({bpmn20Xml}) => {
                     let parsedXML;
                     parseString(bpmn20Xml, (err, result) => {
@@ -124,7 +124,29 @@ export const requestPageFormFieldsRequestCreator = (key, name) => {
                         {...element['$'], options: element['camunda:value'].map(element => element['$'])} :
                         element['$']);
                     dispatch(setFormOptions({formFields, name, key}));
-                    dispatch(toggleModalStatus())
+                    dispatch(toggleNewProcessModalStatus())
+                });
+        } catch (err) {
+            console.log(err);
+        }
+    }
+};
+
+export const processStepsRequestCreator = (key, status) => {
+    return async ( dispatch ) => {
+        try {
+            await processesService.getProcessXML(key)
+                .then(({bpmn20Xml}) => {
+                    let parsedXML;
+                    parseString(bpmn20Xml, (err, result) => {
+                        parsedXML = result;
+                    });
+                    const stepsData = parsedXML['bpmn:definitions']['bpmn:process'][0]['bpmn:userTask'];
+                    const processSteps = stepsData.map(element => element['$']['name']);
+                    const currentStepIndex = processSteps.indexOf(status);
+                    dispatch(setProcessSteps({processSteps, currentStepIndex}));
+                    dispatch(toggleStepsModalStatus());
+                    console.log()
                 });
         } catch (err) {
             console.log(err);

@@ -20,7 +20,9 @@
         "tableColStatus": "Статус",
         "tableColCreated": "Створено",
         "tableColRequest": "Запит",
-        "send": "Створити"
+        "send": "Створити",
+        "details": "Детальніше",
+        "status": "Стадія процесу"
     }
 }
 

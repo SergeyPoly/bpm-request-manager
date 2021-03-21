@@ -20,6 +20,8 @@
         "tableColStatus": "Status",
         "tableColCreated": "Created",
         "tableColRequest": "Request",
-        "send": "Send"
+        "send": "Send",
+        "details": "Details",
+        "status": "Process stage"
     }
 }

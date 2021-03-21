@@ -2,20 +2,20 @@ import React from 'react';
 import { Modal } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { toggleModalStatus } from '../../reducer/processesReducer';
+import { toggleNewProcessModalStatus } from '../../reducer/processesReducer';
 import { NewProcessForm } from '../NewProcessForm';
 
-export const ModalContainer = () => {
-    const modalVisible = useSelector(({processes}) => processes.modalActive);
+export const NewProcesessModal = () => {
+    const modalVisible = useSelector(({processes}) => processes.newProcessModalActive);
     const { name } = useSelector(({processes}) => processes.formOptions);
     const dispatch = useDispatch();
 
     const handleCancel = () => {
-        dispatch(toggleModalStatus());
+        dispatch(toggleNewProcessModalStatus());
     };
 
     const handleOk = () => {
-        dispatch(toggleModalStatus())
+        dispatch(toggleNewProcessModalStatus())
     };
 
     return (

@@ -6,8 +6,6 @@ import { base64FileConverter } from './base64FileConverter'
 
 import './FormikFields.scss';
 
-
-
 export const FormikField = ({ label, options, ...props }) => {
     const {type, name} = props;
     const [field, , helpers] = useField(props);

@@ -16,7 +16,6 @@ body,
 }
 
 .app {
-    // layout страницы делается через CSS Grid
     &-wrapper {
         display: flex;
         flex-direction: column;
@@ -30,5 +29,11 @@ body,
     &-content {
         flex: 1 0 auto;
         display: flex;
+    }
+}
+.custom-row-style {
+    cursor: pointer;
+    &:hover {
+        color: #2f54eb;
     }
 }

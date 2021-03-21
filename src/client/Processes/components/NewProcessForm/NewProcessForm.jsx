@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { typeConverter, typeReassigner } from "./typeConverter";
 import { SubmitContainer } from '../../../../shared/components/SubmitContainer/SubmitContainer';
 import { startNewProcessRequestCreator } from '../../reducer/processesActionCreators';
-import { toggleModalStatus } from '../../reducer/processesReducer';
+import { toggleNewProcessModalStatus } from '../../reducer/processesReducer';
 import { FormikField } from '../../../../shared/components/FormikField/FormikField';
 
 export const NewProcessForm = () => {
@@ -63,7 +63,7 @@ export const NewProcessForm = () => {
             }
         }
         dispatch(startNewProcessRequestCreator(key, processedData));
-        dispatch(toggleModalStatus());
+        dispatch(toggleNewProcessModalStatus());
         actions.resetForm({
             values: {},
         })

@@ -35,7 +35,7 @@ export default class ProcessesIdService extends BaseHttpService {
         return response;
     }
 
-    async getProcessName(key) {
+    async getProcessXML(key) {
         const {tenantId} = this.loadTenantId();
         const endpoint = `process-definition/key/${key}/tenant-id/${tenantId}/xml`;
         const response = await this.get(endpoint);
